@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lapis.Web", "Lapis.Web\Lapis.Web.csproj", "{09662B8A-F106-4665-9E6B-E07104AC600E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lapis.Api", "Lapis.Api\Lapis.Api.csproj", "{FB0DAC81-FBD5-46BE-92D5-D02B756E9069}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lapis.Web", "Lapis.Web\Lapis.Web.csproj", "{12364AFE-2FD7-4B5D-8D6B-5F49D23B0348}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lapis.DAL", "Lapis.DAL\Lapis.DAL.csproj", "{C93E0137-9992-40CB-A336-EBECB22DB174}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{09662B8A-F106-4665-9E6B-E07104AC600E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09662B8A-F106-4665-9E6B-E07104AC600E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09662B8A-F106-4665-9E6B-E07104AC600E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09662B8A-F106-4665-9E6B-E07104AC600E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB0DAC81-FBD5-46BE-92D5-D02B756E9069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB0DAC81-FBD5-46BE-92D5-D02B756E9069}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB0DAC81-FBD5-46BE-92D5-D02B756E9069}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB0DAC81-FBD5-46BE-92D5-D02B756E9069}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12364AFE-2FD7-4B5D-8D6B-5F49D23B0348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12364AFE-2FD7-4B5D-8D6B-5F49D23B0348}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12364AFE-2FD7-4B5D-8D6B-5F49D23B0348}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12364AFE-2FD7-4B5D-8D6B-5F49D23B0348}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C93E0137-9992-40CB-A336-EBECB22DB174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C93E0137-9992-40CB-A336-EBECB22DB174}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C93E0137-9992-40CB-A336-EBECB22DB174}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C93E0137-9992-40CB-A336-EBECB22DB174}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
