@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Lapis.Api.Helpers
 {
@@ -8,7 +9,7 @@ namespace Lapis.Api.Helpers
         {
             if (password == null)
             {
-                throw new ArgumentNullException("password");
+                throw new ArgumentNullException(nameof(password));
             }
 
             if (string.IsNullOrWhiteSpace(password))
@@ -27,7 +28,7 @@ namespace Lapis.Api.Helpers
         {
             if (password == null)
             {
-                throw new ArgumentNullException("password");
+                throw new ArgumentNullException(nameof(password));
             }
 
             if (string.IsNullOrWhiteSpace(password))
@@ -48,12 +49,9 @@ namespace Lapis.Api.Helpers
             using (var hmac = new System.Security.Cryptography.HMACSHA512(storedSalt))
             {
                 var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-                for (int i = 0; i < computedHash.Length; i++)
+                if (computedHash.Where((t, i) => t != storedHash[i]).Any())
                 {
-                    if (computedHash[i] != storedHash[i])
-                    {
-                        return false;
-                    }
+                    return false;
                 }
             }
 

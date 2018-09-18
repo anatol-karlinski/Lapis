@@ -1,0 +1,101 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "parser": "babel-eslint"
+  },
+  "extends": [
+    "airbnb-base",
+    "eslint:recommended",
+    "plugin:vue/recommended",
+    "plugin:prettier/recommended",
+    "plugin:promise/recommended"
+  ],
+  "plugins": [
+    "vue",
+    "prettier",
+    "promise"
+  ],
+  "rules": {
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true
+      }
+    ],
+    "no-console": 1,
+    "max-len": [
+      "error",
+      {
+        "code": 100,
+        "tabWidth": 2,
+        "ignoreRegExpLiterals": true,
+        "ignorePattern": "^import |^export |implements"
+      }
+    ],
+    "import/no-unresolved": "off",
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": [
+          "state",
+          "acc",
+          "e",
+          "ctx",
+          "app",
+          "$axios",
+          "config",
+          "env"
+        ]
+      }
+    ],
+    "no-shadow": [
+      "error",
+      {
+        "builtinGlobals": false,
+        "hoist": "functions",
+        "allow": [
+          "state"
+        ]
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "optionalDependencies": [
+          "test/setup.js"
+        ]
+      }
+    ],
+    "linebreak-style": [
+      "error",
+      "windows"
+    ],
+    "vue/html-indent": [
+      "error", 2,
+      {
+        "attribute": 1,
+        "closeBracket": 1,
+        "alignAttributesVertically": true,
+        "ignores": []
+      }
+    ],
+    "no-use-before-define": [
+      0,
+      "nofunc"
+    ],
+    "vue/no-confusing-v-for-v-if": 0
+  }
+}
