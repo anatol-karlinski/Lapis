@@ -37,7 +37,8 @@
   "eslint.autoFixOnSave": true,
   "editor.formatOnPaste": true,
   "eslint.run": "onSave",
-  "eslint.validate": [{
+  "eslint.validate": [
+    {
       "language": "javascript",
       "autoFix": true
     },
@@ -48,11 +49,10 @@
     {
       "language": "vue",
       "autoFix": true
-    },
+    }
   ],
   "prettier.singleQuote": true,
   "prettier.semi": false,
-
 
   // ===
   // HTML
@@ -73,8 +73,8 @@
   // ===
   // JS(ON)
   // ===
-  "jest.autoEnable": false,
-  "jest.enableCodeLens": false,
+  // "jest.autoEnable": false,
+  // "jest.enableCodeLens": false,
   "javascript.format.enable": false,
   "json.format.enable": false,
   "vetur.validation.script": false,

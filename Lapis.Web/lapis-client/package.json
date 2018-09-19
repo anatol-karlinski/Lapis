@@ -5,14 +5,18 @@
   "scripts": {
     "serve": "vue-cli-service serve --watch",
     "build": "vue-cli-service build",
+    "build:all": "npm run build && npm run build:css && lint:fix",
+    "build:css": "./node_modules/.bin/tailwind build ./src/assets/styles/tailwind-custom.css -c ./tailwind-config.js -o ./src/assets/styles/tailwind-compiled.css",
     "lint": "vue-cli-service lint",
     "lint:fix": "vue-cli-service lint --fix"
   },
   "dependencies": {
+    "autoprefixer": "^9.1.5",
     "prettier": "^1.14.2",
     "vue": "^2.5.17"
   },
   "devDependencies": {
+    "@types/autoprefixer": "^6.7.3",
     "@vue/cli-plugin-babel": "^3.0.1",
     "@vue/cli-plugin-eslint": "^3.0.1",
     "@vue/cli-service": "^3.0.1",
@@ -28,6 +32,7 @@
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-vue": "^4.7.0",
     "eslint-plugin-vue-libs": "^3.0.0",
+    "tailwindcss": "^0.6.5",
     "vue-template-compiler": "^2.5.17"
   },
   "eslintConfig": {
