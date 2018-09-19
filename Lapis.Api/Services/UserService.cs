@@ -36,7 +36,7 @@ namespace Lapis.Api.Services
 
             var user = _userRepository.GetFirst(u => u.Username == username);
 
-            if (user == null || !PasswordHelper.VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
+            if (user == null || !CryptoHelper.VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
             {
                 return null;
             }
@@ -58,7 +58,7 @@ namespace Lapis.Api.Services
                 throw new AppException("Username " + user.Username + " is already taken");
             }
 
-            PasswordHelper.CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
+            CryptoHelper.CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
 
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
@@ -80,7 +80,7 @@ namespace Lapis.Api.Services
 
             if (!string.IsNullOrWhiteSpace(password))
             {
-                PasswordHelper.CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
+                CryptoHelper.CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
 
                 user.PasswordHash = passwordHash;
                 user.PasswordSalt = passwordSalt;
@@ -88,23 +88,9 @@ namespace Lapis.Api.Services
             return await _userRepository.UpdateAsync(user);
         }
 
-
         public async Task DeleteAsync(int id)
         {
             await _userRepository.DeleteAsync(id);
-        }
-
-        public async Task<List<string>> GetRolesAsync(User user)
-        {
-            return await Task.FromResult<List<string>>(MocUserRoles());
-        }
-
-        private List<string> MocUserRoles()
-        {
-            return new List<string>
-                {
-                    "User"
-                };
         }
     }
 }

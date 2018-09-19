@@ -12,6 +12,5 @@ namespace Lapis.Api.Interfaces
         Task<IEnumerable<User>> GetAllAsync();
         Task<User> UpdateAsync(User userParam, string password = null);
         Task DeleteAsync(int id);
-        Task<List<string>> GetRolesAsync(User user);
     }
 }

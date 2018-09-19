@@ -66,7 +66,6 @@ namespace Lapis.Api.Controllers
             });
         }
 
-
         [AllowAnonymous]
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody]UserDto userDto)
@@ -127,6 +126,16 @@ namespace Lapis.Api.Controllers
             var user = _userService.GetById(id);
             var userDto = _mapper.Map<UserDto>(user);
             return Ok(userDto);
+        }
+
+        [HttpGet("czajniczek")]
+        [AllowAnonymous]
+        public IActionResult Czajniczek()
+        {
+            return Ok(new
+            {
+                dupa = "zdezydowanie dupa"
+            });
         }
     }
 }

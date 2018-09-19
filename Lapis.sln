@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lapis.Api", "Lapis.Api\Lapis.Api.csproj", "{FB0DAC81-FBD5-46BE-92D5-D02B756E9069}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lapis.Api", "Lapis.Api\Lapis.Api.csproj", "{FB0DAC81-FBD5-46BE-92D5-D02B756E9069}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lapis.Web", "Lapis.Web\Lapis.Web.csproj", "{12364AFE-2FD7-4B5D-8D6B-5F49D23B0348}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lapis.Web", "Lapis.Web\Lapis.Web.csproj", "{12364AFE-2FD7-4B5D-8D6B-5F49D23B0348}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lapis.DAL", "Lapis.DAL\Lapis.DAL.csproj", "{C93E0137-9992-40CB-A336-EBECB22DB174}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lapis.DAL", "Lapis.DAL\Lapis.DAL.csproj", "{C93E0137-9992-40CB-A336-EBECB22DB174}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lapis.Tests", "Lapis.Tests\Lapis.Tests.csproj", "{DB051796-F080-4CC4-B027-7A6BCA23DED7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{C93E0137-9992-40CB-A336-EBECB22DB174}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C93E0137-9992-40CB-A336-EBECB22DB174}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C93E0137-9992-40CB-A336-EBECB22DB174}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB051796-F080-4CC4-B027-7A6BCA23DED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB051796-F080-4CC4-B027-7A6BCA23DED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB051796-F080-4CC4-B027-7A6BCA23DED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB051796-F080-4CC4-B027-7A6BCA23DED7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
