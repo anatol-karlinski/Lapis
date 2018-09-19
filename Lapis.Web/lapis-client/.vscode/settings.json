@@ -3,6 +3,7 @@
   // Git
   // ===
   "git.confirmSync": true,
+  "git.autofetch": true,
 
   // ===
   // Spacing
@@ -34,6 +35,7 @@
   // ===
   "editor.formatOnSave": true,
   "eslint.autoFixOnSave": true,
+  "editor.formatOnPaste": true,
   "eslint.run": "onSave",
   "eslint.validate": [{
       "language": "javascript",
@@ -48,6 +50,8 @@
       "autoFix": true
     },
   ],
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
 
   // ===
   // HTML
