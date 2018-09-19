@@ -9,8 +9,6 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue';
-import '@/assets/styles/tailwind-compiled.css';
-import '@/assets/styles/tailwind-custom.css';
 
 export default {
   name: 'App',

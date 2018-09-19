@@ -74,6 +74,20 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: { type: String, default: '' }
+  },
+  mounted() {
+    this.$http
+      .get('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => {
+        // eslint-disable-next-line no-console
+        console.log(response.data);
+
+        return response;
+      })
+      .catch(error => {
+        // eslint-disable-next-line no-console
+        console.log(error);
+      });
   }
 };
 </script>

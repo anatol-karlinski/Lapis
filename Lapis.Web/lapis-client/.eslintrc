@@ -14,11 +14,7 @@
     "plugin:prettier/recommended",
     "plugin:promise/recommended"
   ],
-  "plugins": [
-    "vue",
-    "prettier",
-    "promise"
-  ],
+  "plugins": ["vue", "prettier", "promise"],
   "rules": {
     "padding-line-between-statements": [
       "error",
@@ -66,25 +62,19 @@
       {
         "builtinGlobals": false,
         "hoist": "functions",
-        "allow": [
-          "state"
-        ]
+        "allow": ["state"]
       }
     ],
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "optionalDependencies": [
-          "test/setup.js"
-        ]
+        "optionalDependencies": ["test/setup.js"]
       }
     ],
-    "linebreak-style": [
-      "error",
-      "windows"
-    ],
+    "linebreak-style": ["error", "windows"],
     "vue/html-indent": [
-      "error", 2,
+      "error",
+      2,
       {
         "attribute": 1,
         "closeBracket": 1,
@@ -92,10 +82,7 @@
         "ignores": []
       }
     ],
-    "no-use-before-define": [
-      0,
-      "nofunc"
-    ],
+    "no-use-before-define": [0, "nofunc"],
     "vue/no-confusing-v-for-v-if": 0
   }
 }
