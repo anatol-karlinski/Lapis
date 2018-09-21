@@ -7,8 +7,7 @@ const state = user
   : { status: {}, user: null };
 
 const actions = {
-  // login({ dispatch, commit }, { username, password }) {
-  login({ commit }, { username, password }) {
+  login({ dispatch, commit }, { username, password }) {
     commit('loginRequest', { username });
 
     authenticationService
@@ -18,16 +17,18 @@ const actions = {
         router.push('/');
       })
       .catch(error => {
-        commit('loginFailure', error);
-        // dispatch('alert/error', error, { root: true });
+        const message = error.response.data.message
+          ? error.response.data.message
+          : error;
+        commit('loginFailure', message);
+        dispatch('alert/error', message, { root: true });
       });
   },
   logout({ commit }) {
     authenticationService.logout();
     commit('logout');
   },
-  // register({ dispatch, commit }, user) {
-  register({ commit }, passedUser) {
+  register({ dispatch, commit }, passedUser) {
     commit('registerRequest', passedUser);
 
     authenticationService
@@ -35,16 +36,18 @@ const actions = {
       .then(u => {
         commit('registerSuccess', u);
         router.push('/login');
-        // setTimeout(() => {
-        //   // display success message after route change completes
-        //   dispatch('alert/success', 'Registration successful', {
-        //     root: true
-        //   });
-        // });
+        setTimeout(() => {
+          dispatch('alert/success', 'Registration successful', {
+            root: true
+          });
+        });
       })
       .catch(error => {
-        commit('registerFailure', error);
-        // dispatch('alert/error', error, { root: true });
+        const message = error.response.data.message
+          ? error.response.data.message
+          : error;
+        commit('registerFailure', message);
+        dispatch('alert/error', message, { root: true });
       });
   }
 };

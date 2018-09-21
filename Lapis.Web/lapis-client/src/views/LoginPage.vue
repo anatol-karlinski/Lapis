@@ -26,13 +26,6 @@ export default {
   },
   methods: {
     ...mapActions('authentication', ['login', 'logout']),
-    // handleSubmit(e) {
-    //   this.submitted = true;
-    //   const { username, password } = this;
-    //   if (username && password) {
-    //     this.login({ username, password });
-    //   }
-    // }
     handleLogin() {
       this.submitted = true;
       const { username, password } = this;

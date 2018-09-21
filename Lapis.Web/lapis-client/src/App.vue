@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div
+      v-if="alert.message"
+      :class="`alert ${alert.type}`">{{ alert.message }}</div>
     <router-view/>
     <router-link to="/register">
       Register
@@ -13,8 +16,26 @@
   </div>
 </template>
 <script>
+import { mapState, mapActions } from 'vuex';
+
 export default {
-  name: 'App'
+  name: 'App',
+  computed: {
+    ...mapState({
+      alert: state => state.alert
+    })
+  },
+  watch: {
+    // $route(to, from) {
+    $route() {
+      this.clearAlert();
+    }
+  },
+  methods: {
+    ...mapActions({
+      clearAlert: 'alert/clear'
+    })
+  }
 };
 </script>
 
