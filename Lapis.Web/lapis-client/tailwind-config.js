@@ -913,7 +913,7 @@ module.exports = {
   */
 
   options: {
-    prefix: '',
+    prefix: 't-',
     important: false,
     separator: ':'
   }

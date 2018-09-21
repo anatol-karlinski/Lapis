@@ -5,13 +5,7 @@ using Lapis.Api.Models.Dtos;
 using Lapis.DAL.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using System;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Lapis.Api.Controllers
@@ -21,18 +15,18 @@ namespace Lapis.Api.Controllers
     {
         private readonly IUserService _userService;
         private readonly IMapper _mapper;
-        private readonly AppSettings _appSettings;
+        private readonly IJwtHelper _jwtHelper;
 
-        public UserController(IUserService userService, IMapper mapper, IOptions<AppSettings> appSettings)
+        public UserController(IUserService userService, IMapper mapper, IJwtHelper jwtHelper)
         {
             _userService = userService;
             _mapper = mapper;
-            _appSettings = appSettings.Value;
+            _jwtHelper = jwtHelper;
         }
 
         [AllowAnonymous]
-        [HttpPost("authenticate")]
-        public IActionResult Authenticate([FromBody]UserDto userDto)
+        [HttpPost("login")]
+        public IActionResult Login([FromBody]UserDto userDto)
         {
             var user = _userService.Authenticate(userDto.Username, userDto.Password);
 
@@ -41,20 +35,7 @@ namespace Lapis.Api.Controllers
                 return BadRequest(new { message = "Username or password is incorrect" });
             }
 
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                    new Claim(ClaimTypes.Name, user.Id.ToString()),
-                    new Claim(ClaimTypes.Role, "User")
-                }),
-                Expires = DateTime.UtcNow.AddDays(7),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            var tokenString = tokenHandler.WriteToken(token);
+            var tokenString = _jwtHelper.GenerateTokenStringForUser(user);
 
             return Ok(new
             {
@@ -128,14 +109,10 @@ namespace Lapis.Api.Controllers
             return Ok(userDto);
         }
 
-        [HttpGet("czajniczek")]
-        [AllowAnonymous]
-        public IActionResult Czajniczek()
+        [HttpGet("authTest")]
+        public IActionResult AuthTest()
         {
-            return Ok(new
-            {
-                dupa = "zdezydowanie dupa"
-            });
+            return Ok(new { status = "auth ok" });
         }
     }
 }

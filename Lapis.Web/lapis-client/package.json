@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve --watch",
     "build": "vue-cli-service build",
-    "build:all": "npm run build && npm run build:css && lint:fix",
+    "build:all": "npm run build:css && npm run lint:fix && npm run build",
     "build:css": "./node_modules/.bin/tailwind build ./src/assets/styles/tailwind-custom.css -c ./tailwind-config.js -o ./src/assets/styles/tailwind-compiled.css",
     "lint": "vue-cli-service lint",
     "lint:fix": "vue-cli-service lint --fix"
@@ -13,7 +13,9 @@
   "dependencies": {
     "autoprefixer": "^9.1.5",
     "axios": "^0.18.0",
-    "vue": "^2.5.17"
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@types/autoprefixer": "^6.7.3",

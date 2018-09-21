@@ -42,6 +42,7 @@
     ],
     "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
+    "promise/always-return": "off",
     "no-param-reassign": [
       "error",
       {
