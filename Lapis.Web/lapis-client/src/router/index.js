@@ -13,7 +13,7 @@ export const router = new Router({
     { path: '/register', component: RegistrationPage },
     { path: '/login', component: LoginPage },
     { path: '/auth', component: AuthTest },
-    { path: '/', component: RegistrationPage },
+    { path: '/', component: LoginPage },
     { path: '*', redirect: '/' }
   ]
 });

@@ -14,7 +14,6 @@ namespace Lapis.Web.Controllers
             HostingEnv = env;
         }
 
-
         [HttpGet]
         public IActionResult RedirectIndex()
         {
