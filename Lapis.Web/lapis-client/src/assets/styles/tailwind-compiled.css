@@ -6197,6 +6197,10 @@ table {
   width: 83.33333%;
 }
 
+.t-w-9\/10 {
+  width: 90%;
+}
+
 .t-w-full {
   width: 100%;
 }
@@ -11776,6 +11780,10 @@ table {
     width: 83.33333%;
   }
 
+  .sm\:t-w-9\/10 {
+    width: 90%;
+  }
+
   .sm\:t-w-full {
     width: 100%;
   }
@@ -17339,6 +17347,10 @@ table {
 
   .md\:t-w-5\/6 {
     width: 83.33333%;
+  }
+
+  .md\:t-w-9\/10 {
+    width: 90%;
   }
 
   .md\:t-w-full {
@@ -22906,6 +22918,10 @@ table {
     width: 83.33333%;
   }
 
+  .lg\:t-w-9\/10 {
+    width: 90%;
+  }
+
   .lg\:t-w-full {
     width: 100%;
   }
@@ -28469,6 +28485,10 @@ table {
 
   .xl\:t-w-5\/6 {
     width: 83.33333%;
+  }
+
+  .xl\:t-w-9\/10 {
+    width: 90%;
   }
 
   .xl\:t-w-full {
