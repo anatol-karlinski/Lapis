@@ -1,32 +1,32 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import RegistrationPage from '../views/RegistrationPage';
-import LoginPage from '../views/LoginPage';
-import QuizPage from '../views/QuizPage';
-import AuthTest from '../views/AuthTestPage';
+import SignUpPage from '@/views/SignUpPage';
+import SignInPage from '@/views/SignInPage';
+import LandingPage from '@/views/LandingPage';
+import DashboardPage from '@/views/DashboardPage';
 
 Vue.use(Router);
 
 export const router = new Router({
   mode: 'history',
   routes: [
-    { path: '/register', component: RegistrationPage },
-    { path: '/login', component: LoginPage },
-    { path: '/quiz', component: QuizPage },
-    { path: '/auth', component: AuthTest },
-    { path: '/', component: LoginPage },
+    { name: 'signup', path: '/signup', component: SignUpPage },
+    { name: 'signin', path: '/signin', component: SignInPage },
+    { name: 'dashboard', path: '/dashboard', component: DashboardPage },
+    { name: 'landing', path: '/', component: LandingPage },
     { path: '*', redirect: '/' }
   ]
 });
 
+const publicPages = ['signup', 'signin', 'landing'];
+
 router.beforeEach((to, from, next) => {
-  const publicPages = ['/login', '/register'];
-  const authRequired = !publicPages.includes(to.path);
+  const authRequired = !publicPages.includes(to.name);
   const loggedIn = localStorage.getItem('user');
 
   if (authRequired && !loggedIn) {
-    return next('/login');
+    return next('/landing');
   }
 
   next();

@@ -16,7 +16,7 @@
 import { mapActions } from 'vuex';
 
 export default {
-  name: 'LoginPage',
+  name: 'SignInPage',
   data() {
     return {
       username: '',

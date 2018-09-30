@@ -18,7 +18,7 @@
 import { authenticationService } from '../services';
 
 export default {
-  name: 'RegistrationPage',
+  name: 'SignUpPage',
   data() {
     return {
       username: '',

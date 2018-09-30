@@ -1,11 +1,10 @@
 <template>
-  <div/>
+  <div>t</div>
 </template>
 
 <script>
 export default {
-  name: 'QuestionCreationComponent',
-  props: {}
+  name: 'DashboardPage'
 };
 </script>
 
