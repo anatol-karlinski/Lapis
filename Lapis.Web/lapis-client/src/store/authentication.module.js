@@ -14,7 +14,7 @@ const actions = {
       .login(username, password)
       .then(u => {
         commit('loginSuccess', u);
-        router.push('/');
+        router.push('/dashboard');
       })
       .catch(error => {
         const message = error.response.data.message

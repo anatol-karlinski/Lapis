@@ -1,5 +1,10 @@
 <template>
-  <div>t</div>
+  <div>
+    <h3>
+      Dashboard
+    </h3>
+    <br>
+  </div>
 </template>
 
 <script>

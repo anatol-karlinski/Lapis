@@ -2,7 +2,7 @@
   <div class="t-flex t-flex-col t-absolute t-w-screen t-h-screen t-antialiased">
     <top-menu-bar/>
     <div class="t-flex t-relative t-w-full t-h-full t-justify-center t-align-center">
-      <div class="t-flex t-relative t-w-9/10">
+      <div class="t-flex t-relative t-justify-center t-w-9/10">
         <router-view/>
       </div>
     </div>
@@ -20,7 +20,7 @@ export default {
   computed: {
     ...mapState({
       alert: state => state.alert,
-      status: state => state.status
+      status: state => state.authentication.status
     })
   },
   watch: {

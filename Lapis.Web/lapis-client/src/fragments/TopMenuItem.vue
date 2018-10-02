@@ -8,26 +8,19 @@
 </template>
 
 <script>
-// import { mapState } from 'vuex';
-
 export default {
   name: 'TopMenuItem',
   props: {
     text: { type: String, required: true },
     route: { type: String, required: true },
-    authorizationRequired: { type: Boolean, required: true }
+    showWhenLoggedIn: { type: Boolean, default: true },
+    showWhenNotLoggedIn: { type: Boolean, default: true }
   },
   computed: {
     shouldBeDisplayed: function() {
-      console.log(
-        this.authorizationRequired
-          ? this.$store.state.authentication.status.loggedIn
-          : true
-      );
+      let loggedIn = this.$store.state.authentication.status.loggedIn;
 
-      return this.authorizationRequired
-        ? this.$store.state.authentication.status.loggedIn
-        : true;
+      return loggedIn ? this.showWhenLoggedIn : this.showWhenNotLoggedIn;
     }
   }
 };

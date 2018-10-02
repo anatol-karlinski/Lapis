@@ -2,24 +2,28 @@
   <div
     class="t-flex t-relative t-w-full t-bg-grey-darkest t-text-grey-lightest">
     <top-menu-item
-      :text="`Rejestracja`"
-      :route="`signup`"
-      :authorization-required="false"
-      />
-    <top-menu-item
-      :text="`Login`"
-      :route="`signin`"
-      :authorization-required="false"
-      />
-    <top-menu-item
       :text="`Strona gówna`"
       :route="`landing`"
-      :authorization-required="false"
+      :show-when-not-logged-in="true"
+      :show-when-logged-in="false"
       />
     <top-menu-item
       :text="`Strona gówna`"
       :route="`dashboard`"
-      :authorization-required="true"
+      :show-when-not-logged-in="false"
+      :show-when-logged-in="true"
+      />
+    <top-menu-item
+      :text="`Rejestracja`"
+      :route="`signup`"
+      :show-when-not-logged-in="true"
+      :show-when-logged-in="false"
+      />
+    <top-menu-item
+      :text="`Login`"
+      :route="`signin`"
+      :show-when-not-logged-in="true"
+      :show-when-logged-in="false"
       />
     <div class="t-m-2 t-absolute t-pin-r t-text-sm">
       {{ userLogedIn ? "Logged in" : "Not logged in" }}
