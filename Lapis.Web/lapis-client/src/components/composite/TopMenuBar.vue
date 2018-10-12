@@ -8,6 +8,7 @@
       :show-when-logged-in="false"
       />
     <top-menu-item
+      :wrapper-classes="`t-text-red`"
       :text="`Strona gówna`"
       :route="`dashboard`"
       :show-when-not-logged-in="false"
@@ -25,24 +26,33 @@
       :show-when-not-logged-in="true"
       :show-when-logged-in="false"
       />
-    <div class="t-m-2 t-absolute t-pin-r t-text-sm">
-      {{ userLogedIn ? "Logged in" : "Not logged in" }}
-    </div>
+    <top-menu-item
+      :text="`Logout`"
+      :show-when-not-logged-in="false"
+      :show-when-logged-in="true"
+      :wrapper-classes="`t-absolute t-pin-r`"
+      @click="logout"
+      />
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import TopMenuItem from '@/fragments/TopMenuItem';
+import { mapActions } from 'vuex';
+import TopMenuItem from '@/components/fragments/TopMenuItem';
 
 export default {
   name: 'TopMenuBar',
   components: {
     TopMenuItem
   },
-  computed: {
-    ...mapState({
-      userLogedIn: state => state.status
+  // computed: {
+  //   ...mapState({
+  //     userLogedIn: state => state.authentication.status
+  //   })
+  // },
+  methods: {
+    ...mapActions({
+      logout: 'authenticatioss  n/logout'
     })
   }
 };

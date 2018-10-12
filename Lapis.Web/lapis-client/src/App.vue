@@ -10,7 +10,7 @@
 </template>
 <script>
 import { mapState, mapActions } from 'vuex';
-import TopMenuBar from '@/components/TopMenuBar';
+import TopMenuBar from '@/components/composite/TopMenuBar';
 
 export default {
   name: 'App',
