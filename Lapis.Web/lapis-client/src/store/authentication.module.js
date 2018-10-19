@@ -7,11 +7,11 @@ const state = user
   : { status: { loggedIn: false }, user: null };
 
 const actions = {
-  login({ dispatch, commit }, { username, password }) {
-    commit('loginRequest', { username });
+  login({ dispatch, commit }, passedUser) {
+    commit('loginRequest', passedUser);
 
     authenticationService
-      .login(username, password)
+      .login(passedUser.username, passedUser.password)
       .then(u => {
         commit('loginSuccess', u);
         router.push('/dashboard');
@@ -26,6 +26,7 @@ const actions = {
   },
   logout({ commit }) {
     authenticationService.logout();
+    router.push('/');
     commit('logout');
   },
   register({ dispatch, commit }, passedUser) {
@@ -46,7 +47,7 @@ const actions = {
         const message = error.response.data.message
           ? error.response.data.message
           : error;
-        commit('registerFailure', message);
+        commit('registerFailure');
         dispatch('alert/error', message, { root: true });
       });
   }

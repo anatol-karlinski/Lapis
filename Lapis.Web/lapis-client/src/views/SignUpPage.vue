@@ -6,45 +6,35 @@
     <br>
     <div>Username:</div>
     <input
-      v-model="username"
+      v-model="user.username"
       type="text">
     <br >
     Password:
     <input
-      v-model="password"
+      v-model="user.password"
       type="password">
-    <button @click="register">Register</button>
+    <button @click="register(user)">Register</button>
   </div>
 </template>
 
 
 <script>
-import { authenticationService } from '../services';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'SignUpPage',
   data() {
     return {
-      username: '',
-      password: ''
+      user: {
+        username: '',
+        password: ''
+      }
     };
   },
   methods: {
-    register() {
-      authenticationService
-        .register({
-          username: this.username,
-          password: this.password
-        })
-        .then(user => {
-          console.log(user);
-
-          return true;
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    }
+    ...mapActions({
+      register: 'authentication/register'
+    })
   }
 };
 </script>

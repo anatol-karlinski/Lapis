@@ -6,14 +6,14 @@
     <br>
     <div>Username:</div>
     <input
-      v-model="username"
+      v-model="user.username"
       type="text">
     <br >
     Password:
     <input
-      v-model="password"
+      v-model="user.password"
       type="password">
-    <button @click="handleLogin">Login</button>
+    <button @click="login(user)">Login</button>
   </div>
 </template>
 <script>
@@ -23,20 +23,16 @@ export default {
   name: 'SignInPage',
   data() {
     return {
-      username: '',
-      password: '',
-      submitted: false
+      user: {
+        username: '',
+        password: ''
+      }
     };
   },
   methods: {
-    ...mapActions('authentication', ['login', 'logout']),
-    handleLogin() {
-      this.submitted = true;
-      const { username, password } = this;
-      if (username && password) {
-        this.login({ username, password });
-      }
-    }
+    ...mapActions({
+      login: 'authentication/login'
+    })
   }
 };
 </script>

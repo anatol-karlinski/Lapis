@@ -2,7 +2,10 @@
   <div class="t-flex t-flex-col t-absolute t-w-screen t-h-screen t-antialiased">
     <top-menu-bar/>
     <div class="t-flex t-relative t-w-full t-h-full t-justify-center t-align-center">
-      <div class="t-flex t-relative t-justify-center t-w-9/10">
+      <div class="t-flex t-flex-row t-relative t-justify-center t-w-9/10">
+        <div
+          v-if="alert.message !== null"
+          class="t-flex t-justify-center t-my-2">{{ alert.message }}</div>
         <router-view/>
       </div>
     </div>

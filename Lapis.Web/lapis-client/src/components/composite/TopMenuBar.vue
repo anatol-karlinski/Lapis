@@ -31,7 +31,7 @@
       :show-when-not-logged-in="false"
       :show-when-logged-in="true"
       :wrapper-classes="`t-absolute t-pin-r`"
-      @click="logout"
+      @click.native="logout"
       />
   </div>
 </template>
@@ -52,7 +52,7 @@ export default {
   // },
   methods: {
     ...mapActions({
-      logout: 'authenticatioss  n/logout'
+      logout: 'authentication/logout'
     })
   }
 };
